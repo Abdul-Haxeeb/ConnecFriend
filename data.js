@@ -1,20 +1,22 @@
-
 let minute = 60000;
 
 let seed = {
     users: [
-        { username: "haseeb", password: "1234", name: "Abdul Haseeb", phone: "0300-1111111", email: "haseeb@connecfriend.com", city: "Islamabad", lastLogin: Date.now() - 300 * minute, friends: ["ali", "atif"], ratings: {}, invites: [], ignored: [] },
-        { username: "ali", password: "1234", name: "Ali", phone: "0300-2222222", email: "ali@connecfriend.com", city: "Lahore", lastLogin: Date.now() - 5 * minute, friends: ["haseeb", "atif"], ratings: {}, invites: [], ignored: [] },
-        { username: "atif", password: "1234", name: "Atif", phone: "0300-3333333", email: "atif@connecfriend.com", city: "Karachi", lastLogin: Date.now() - 90 * minute, friends: ["haseeb", "ali"], ratings: {}, invites: [], ignored: [] },
-        { username: "sara", password: "1234", name: "Sara", phone: "0300-5555555", email: "sara@connecfriend.com", city: "Multan", lastLogin: Date.now() - 200 * minute, friends: [], ratings: {}, invites: [], ignored: ["haseeb"] },
-        { username: "hamza", password: "1234", name: "Hamza", phone: "0300-6666666", email: "hamza@connecfriend.com", city: "Quetta", lastLogin: Date.now() - 600 * minute, friends: [], ratings: {}, invites: [], ignored: [] }
+        { username: "haseebdope", password: "haseeb123", name: "Haseeb Dope", gender: "Male", phone: "0300-1111111", email: "haseebdope@connecfriend.com", city: "Islamabad", lastLogin: Date.now() - 300 * minute, friends: ["ali", "mubashir"], ratings: {}, invites: [], ignored: [], avatar: "https://i.pravatar.cc/100?u=haseebdope" },
+        { username: "farhan", password: "farhan5050", name: "Farhan", gender: "Male", phone: "0300-2222222", email: "farhan@connecfriend.com", city: "Islamabad", lastLogin: Date.now() - 15 * minute, friends: ["mubashir"], ratings: {}, invites: [], ignored: [], avatar: "https://i.pravatar.cc/100?u=farhan" },
+        { username: "mubashir", password: "mubashir5050", name: "Mubashir", gender: "Male", phone: "0300-3333333", email: "mubashir@connecfriend.com", city: "Rawalpindi", lastLogin: Date.now() - 90 * minute, friends: ["haseebdope", "farhan"], ratings: {}, invites: [], ignored: [], avatar: "https://i.pravatar.cc/100?u=mubashir" },
+        { username: "ali", password: "ali1234", name: "Ali", gender: "Male", phone: "0300-4444444", email: "ali@connecfriend.com", city: "Lahore", lastLogin: Date.now() - 5 * minute, friends: ["haseebdope"], ratings: {}, invites: [], ignored: [], avatar: "https://i.pravatar.cc/100?u=ali" },
+        { username: "momina", password: "momina5050", name: "Momina", gender: "Female", phone: "0300-5555555", email: "momina@connecfriend.com", city: "Islamabad", lastLogin: Date.now() - 200 * minute, friends: [], ratings: {}, invites: [], ignored: [], avatar: "https://i.pravatar.cc/100?u=momina" }
     ],
     posts: [
-        { id: 1, author: "ali", text: "Just finished my web development project!", time: Date.now() - 10 * minute, sharedWith: "all", likes: ["atif"], dislikes: [] },
-        { id: 2, author: "atif", text: "Anyone up for cricket this weekend?", time: Date.now() - 100 * minute, sharedWith: "all", likes: [], dislikes: ["ali"] }
+        { id: 1, author: "ali", text: "Just finished my web development project!", time: Date.now() - 10 * minute, sharedWith: "all", likes: ["mubashir"], dislikes: [] },
+        { id: 2, author: "mubashir", text: "Anyone up for cricket this weekend?", time: Date.now() - 100 * minute, sharedWith: "all", likes: [], dislikes: ["ali"] },
+        { id: 3, author: "farhan", text: "Working on my next assignment. Almost done!", time: Date.now() - 30 * minute, sharedWith: "all", likes: ["haseebdope"], dislikes: [] },
+        { id: 4, author: "momina", text: "Had a productive day today!", time: Date.now() - 60 * minute, sharedWith: "all", likes: [], dislikes: [] }
     ],
     messages: [
-        { from: "ali", to: "haseeb", text: "Hey, how are you?", time: Date.now() - 20 * minute }
+        { from: "ali", to: "haseebdope", text: "Hey, how are you?", time: Date.now() - 20 * minute },
+        { from: "farhan", to: "mubashir", text: "Are you coming to university tomorrow?", time: Date.now() - 40 * minute }
     ]
 };
 
@@ -26,7 +28,7 @@ try {
     data = seed;
 }
 
-if (!data.users || !data.users.some(user => user.username === "haseeb")) {
+if (!data.users || !data.users.some(user => user.username === "haseebdope")) {
     data = seed;
     localStorage.removeItem("cfUser");
 }
@@ -53,7 +55,8 @@ function logout() {
 }
 
 function pic(username) {
-    return "https://i.pravatar.cc/100?u=" + encodeURIComponent(username);
+    let user = getUser(username);
+    return user && user.avatar ? user.avatar : "https://i.pravatar.cc/100?u=" + encodeURIComponent(username);
 }
 
 function timeAgo(time) {

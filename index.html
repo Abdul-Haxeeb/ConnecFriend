@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnecFriend | Welcome Back</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="welcome-panel">
+            <div class="brand">
+                <div class="brand-icon"><i class="bi bi-people-fill"></i></div>
+                <span>ConnecFriend</span>
+            </div>
+
+            <div class="welcome-content">
+                <span class="welcome-tag">YOUR PEOPLE. YOUR SPACE.</span>
+                <h1>Good connections<br>make life <span>better.</span></h1>
+                <p>Catch up with your circle, share your moments, and stay close to the people who matter.</p>
+
+                <div class="community-card">
+                    <div class="avatar-stack">
+                        <img src="https://i.pravatar.cc/80?img=12" alt="Community member">
+                        <img src="https://i.pravatar.cc/80?img=47" alt="Community member">
+                        <img src="https://i.pravatar.cc/80?img=33" alt="Community member">
+                        <div class="avatar-more">+</div>
+                    </div>
+                    <div>
+                        <h6>Your circle, all in one place</h6>
+                        <p>Good to have you back.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decor-circle circle-one"></div>
+            <div class="decor-circle circle-two"></div>
+
+            <div class="panel-footer">
+                <span>Made for meaningful connections.</span>
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+        </div>
+
+        <div class="form-panel">
+            <div class="form-top">
+                <span>Already part of the community?</span>
+                <span class="online-dot"></span>
+            </div>
+
+            <div class="login-box">
+                <div class="mobile-brand">
+                    <i class="bi bi-people-fill"></i>
+                    ConnecFriend
+                </div>
+
+                <div class="form-heading">
+                    <span class="small-label">WELCOME BACK</span>
+                    <h2>Sign in to your account</h2>
+                    <p>Pick up where you left off.</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="mb-4">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-wrap">
+                            <i class="bi bi-person"></i>
+                            <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrap">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                            <button type="button" id="togglePassword" class="password-toggle" aria-label="Show password">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="errorMessage" class="error-message" aria-live="polite"></div>
+
+                    <button type="submit" class="sign-in-btn">
+                        Sign In <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="login-note">
+                    <i class="bi bi-shield-check"></i>
+                    A little space for the people who matter.
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <span>ConnecFriend © 2026</span>
+                <span>Connect. Share. Belong.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
